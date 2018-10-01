@@ -28,8 +28,14 @@ public class Application {
             }
         };
 
-        System.out.println("compare(2, 3) = " + naturalOrder.compare(2, 3));
-        System.out.println("compare(2, 2) = " + naturalOrder.compare(2, 2));
-        System.out.println("compare(3, 2) = " + naturalOrder.compare(3, 2));
+        final class Print {
+        	public void exec(Integer first, Integer second) {
+        		System.out.printf("compare(%d, %d) = %d%n", first, second, naturalOrder.compare(first, second));
+        	}
+        }
+
+        new Print().exec(2, 3);
+        new Print().exec(2, 2);
+        new Print().exec(3, 2);
     }
 }
